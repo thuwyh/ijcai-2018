@@ -18,10 +18,11 @@ ijcai-2018 top1 solution
 亲缘关系越近的嫁接成功率越高，在这个问题上也是item相同品别的做这种“嫁接“操作效果才会好，而我们的初赛数据和复赛数据的item并不是一个品类的，所以价值不大。
 
 二.Sample Embedding
+```
+sample_emb_x=[x1,x2,x3,x4,...,xn]                   #xn为第n个property在不在predict_category_property中
 
-sample_emb_x=[x1,x2,x3,x4,...,xn]                   xn为第n个property在不在predict_category_property中
-
-sample_emb_y=[y1,y2,y3,y4,...,yn]                  yn为第n个property在不在item_property_list中
+sample_emb_y=[y1,y2,y3,y4,...,yn]                  #yn为第n个property在不在item_property_list中
+```
 
 一个user有很多个不同的item交互样本，一个item也有很多不同的user交互样本
 

@@ -19,25 +19,23 @@ ijcai-2018 top1 solution
 
 二.Sample Embedding
 ```
-sample_emb_x=[x1,x2,x3,x4,...,xn]                   #xn为第n个property在不在predict_category_property中
-
-sample_emb_y=[y1,y2,y3,y4,...,yn]                  #yn为第n个property在不在item_property_list中
+sample_emb_x=[x1,x2,x3,x4,...,xn]                   # xn为第n个property在不在predict_category_property中
+sample_emb_y=[y1,y2,y3,y4,...,yn]                   # yn为第n个property在不在item_property_list中
 ```
 
 一个user有很多个不同的item交互样本，一个item也有很多不同的user交互样本
 
-user_emb_x=mean([sample_emb_x_1,sample_emb_x_2,...,sample_emb_x_k])         sample_emb_x_k为该user的第k条样本的sample_emb
-
-user_emb_y=mean([sample_emb_y_1,sample_emb_y_2,...,sample_emb_y_k])         sample_emb_y_k为该user的第k条样本的sample_emb
-
+```
+user_emb_x=mean([sample_emb_x_1,sample_emb_x_2,...,sample_emb_x_k])   # sample_emb_x_k为该user的第k条样本的sample_emb
+user_emb_y=mean([sample_emb_y_1,sample_emb_y_2,...,sample_emb_y_k])   # sample_emb_y_k为该user的第k条样本的sample_emb
+```
 通过这种对所有样本的sample_emb做mean操作来对user做embedding
-
-item_emb_x=mean([user_emb_x_1,user_emb_x_2,...,user_emb_x_k])               user_emb_x_k为该item的第k条样本的user_emb
-
-item_emb_y=mean([user_emb_y_1,user_emb_y_2,...,user_emb_y_k])               user_emb_y_k为该item的第k条样本的user_emb
-
+```
+item_emb_x=mean([user_emb_x_1,user_emb_x_2,...,user_emb_x_k])   # user_emb_x_k为该item的第k条样本的user_emb
+item_emb_y=mean([user_emb_y_1,user_emb_y_2,...,user_emb_y_k])   # user_emb_y_k为该item的第k条样本的user_emb
+```
 通过这种对所有样本的use_emb做mean操作来对item做embedding
 
 至此通过predict_category_property，item_property_list这两条信息对sample，user，item做了embedding。
 
-得到了6*n个特征，n的大小视情况而定，这里我取了出现次数top100的property来做我的embedding，所以总共 6 * 100个特征。 
+得到了``6*n``个特征，n的大小视情况而定，这里我取了出现次数top100的property来做我的embedding，所以总共 ``6*100``个特征。 
